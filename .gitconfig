@@ -1,0 +1,22 @@
+[core]
+	autocrlf = input
+[user]
+	email = owen@owensmith.uk
+	name = Owen Smith
+	signingkey = 8C05F47746352CE5
+[commit]
+	gpgSign = true
+	verbose = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = master
+[color]
+	ui = auto
+[diff]
+	algorithm = histogram
+[pull]
+	rebase = true
