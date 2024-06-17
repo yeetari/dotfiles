@@ -19,3 +19,4 @@ Zutty.color12: #739fcf
 Zutty.color13: #ad7fa8
 Zutty.color14: #34e2e2
 Zutty.color15: #eeeeec
+Zutty.saveLines: 2000
