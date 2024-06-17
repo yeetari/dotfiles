@@ -1,16 +1,16 @@
 if [[ $- != *i* ]] ; then
-	# Shell is non-interactive.  Be done now!
-	return
+    # Shell is non-interactive.  Be done now!
+    return
 fi
 
 source ~/.complete_alias
 
 git() {
-	if [ "$1" == "commit" ] || [ "$1" == "diff" ] || [ "$1" == "log" ] || [ "$1" == "status" ]; then
-		echo Use aliases
-        else
-        	command git "$@"
-        fi
+    if [ "$1" == "commit" ] || [ "$1" == "diff" ] || [ "$1" == "log" ] || [ "$1" == "status" ]; then
+        echo Use aliases
+    else
+        command git "$@"
+    fi
 }
 
 alias gap="git add -p"
