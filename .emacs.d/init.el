@@ -42,6 +42,11 @@
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4))
 
+(use-package sgml-mode
+  :defer t
+  :config
+  (setq-default sgml-basic-offset tab-width))
+
 (use-package tex-site
   :mode ("\\.tex\\'" . LaTeX-mode)
   :config
