@@ -48,6 +48,19 @@
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4))
 
+(use-package marginalia
+  :init (marginalia-mode)
+  :bind (:map minibuffer-local-map ("M-a" . marginalia-cycle)))
+
+(use-package orderless
+  :config
+
+  ;; Configure orderless as the default style dispatcher with basic as a fallback.
+  (setq completion-styles '(orderless basic))
+
+  ;; Enable partial completion for file path expansion (find-file).
+  (setq completion-category-overrides '((file (styles partial-completion)))))
+
 (use-package sgml-mode
   :defer t
   :config
