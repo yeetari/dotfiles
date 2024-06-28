@@ -70,4 +70,5 @@
   (setq-default LaTeX-indent-level tab-width))
 
 (use-package vertico
-  :init (vertico-mode))
+  :init (vertico-mode)
+  :bind (:map vertico-map ("TAB" . minibuffer-complete)))
