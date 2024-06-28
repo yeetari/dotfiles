@@ -41,6 +41,9 @@
   ;; Disable ~ backup files.
   (setq make-backup-files nil)
 
+  ;; Hide commands in M-x which do not work in the current mode.
+  (setq read-extended-command-predicate #'command-completion-default-include-p)
+
   ;; Set indent style to four spaces.
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4))
