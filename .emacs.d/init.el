@@ -85,3 +85,6 @@
 (use-package vertico
   :init (vertico-mode)
   :bind (:map vertico-map ("TAB" . minibuffer-complete)))
+
+(use-package which-key
+  :init (which-key-mode))
