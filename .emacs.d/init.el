@@ -56,7 +56,10 @@
 
   ;; Set indent style to four spaces.
   (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 4))
+  (setq-default tab-width 4)
+
+  ;; Mark c-file-offsets as safe.
+  (put 'c-file-offsets 'safe-local-variable (lambda (x) t)))
 
 (use-package marginalia
   :init (marginalia-mode)
