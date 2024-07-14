@@ -25,8 +25,18 @@
          ("M-s d" . consult-find)
          ("M-s g" . consult-grep)))
 
+(use-package corfu
+  :hook (eglot-managed-mode . corfu-mode)
+  :config
+  (setq corfu-auto t))
+
 (use-package doc-view
   :hook (doc-view-mode . auto-revert-mode))
+
+(use-package eglot
+  :defer t
+  :config
+  (setq eglot-ignored-server-capabilities '(:hoverProvider :inlayHintProvider)))
 
 (use-package emacs
   :init
