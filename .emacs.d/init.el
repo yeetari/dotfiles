@@ -59,7 +59,28 @@
   (setq-default tab-width 4)
 
   ;; Mark c-file-offsets as safe.
-  (put 'c-file-offsets 'safe-local-variable (lambda (x) t)))
+  (put 'c-file-offsets 'safe-local-variable (lambda (x) t))
+
+  (defun current-line-empty-p ()
+    (save-excursion
+      (beginning-of-line)
+      (looking-at-p "[[:blank:]]*$")))
+
+  (defun delete-current-line ()
+    (interactive)
+    (delete-region
+     (line-beginning-position)
+     (line-end-position))
+    (delete-char 1))
+
+  (defun smart-backward-kill-word ()
+    (interactive)
+    (if (current-line-empty-p)
+        (progn (delete-current-line) (backward-char))
+      (backward-kill-word 1)))
+
+  (global-set-key (kbd "C-d") #'delete-current-line)
+  (global-set-key (kbd "C-<backspace>") #'smart-backward-kill-word))
 
 (use-package marginalia
   :init (marginalia-mode)
