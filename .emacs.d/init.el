@@ -42,9 +42,6 @@
   :init
   (set-frame-font "Fantasque Sans Mono 14" nil t)
 
-  ;; Enable cut, copy, paste, and undo on C-x, C-c, C-v, C-z.
-  (cua-mode 1)
-
   ;; Disable # autosave files.
   (setq auto-save-default nil)
 
