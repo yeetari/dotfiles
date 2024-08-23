@@ -74,8 +74,15 @@
         (progn (delete-current-line) (backward-char))
       (backward-kill-word 1)))
 
-  (global-set-key (kbd "C-d") #'delete-current-line)
-  (global-set-key (kbd "C-<backspace>") #'smart-backward-kill-word))
+  (defvar keys-mode-keymap (make-keymap))
+  (bind-key "C-d" #'delete-current-line keys-mode-keymap)
+  (bind-key "C-<backspace>" #'smart-backward-kill-word keys-mode-keymap)
+
+  (define-minor-mode keys-mode ""
+    :lighter " Keys"
+    :keymap keys-mode-keymap)
+  :hook (prog-mode . keys-mode)
+  :bind ("C-z" . undo))
 
 (use-package marginalia
   :init (marginalia-mode)
