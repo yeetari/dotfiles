@@ -56,6 +56,9 @@
   ;; Mark c-file-offsets as safe.
   (put 'c-file-offsets 'safe-local-variable (lambda (x) t))
 
+  ;; Mark cmake-tab-width as safe.
+  (put 'cmake-tab-width 'safe-local-variable #'numberp)
+
   (defun current-line-empty-p ()
     (save-excursion
       (beginning-of-line)
