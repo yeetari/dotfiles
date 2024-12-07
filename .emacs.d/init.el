@@ -106,7 +106,6 @@
   (setq-default sgml-basic-offset tab-width))
 
 (use-package tex-site
-  :mode ("\\.tex\\'" . LaTeX-mode)
   :config
 
   ;; Enable TeX parsing on load and explicitly set master file.
@@ -114,12 +113,11 @@
   (setq-default TeX-master "main")
 
   ;; Disable fontification of subscripts and superscripts.
+  (setq tex-fontify-script nil)
   (setq font-latex-fontify-script nil)
 
   ;; Keep colours but remove large fontification of section headers.
-  (setq font-latex-fontify-sectioning 'color)
-
-  (setq-default LaTeX-indent-level tab-width))
+  (setq font-latex-fontify-sectioning 'color))
 
 (use-package vertico
   :init (vertico-mode)
