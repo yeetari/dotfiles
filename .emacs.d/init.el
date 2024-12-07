@@ -85,6 +85,7 @@
     :lighter " Keys"
     :keymap keys-mode-keymap)
   :hook (prog-mode . keys-mode)
+  :hook (LaTeX-mode . keys-mode)
   :bind ("C-z" . undo))
 
 (use-package marginalia
