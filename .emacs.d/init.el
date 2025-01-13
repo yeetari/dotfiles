@@ -40,6 +40,9 @@
   :init
   (set-frame-font "Fantasque Sans Mono 14" nil t)
 
+  ;; Increase GC threshold by a lot.
+  (setq gc-cons-threshold (* 32 1024 1024))
+
   ;; Disable # autosave files.
   (setq auto-save-default nil)
 
