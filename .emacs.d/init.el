@@ -87,6 +87,7 @@
   (define-minor-mode keys-mode ""
     :lighter " Keys"
     :keymap keys-mode-keymap)
+  :hook (org-mode . keys-mode)
   :hook (prog-mode . keys-mode)
   :hook (LaTeX-mode . keys-mode)
   :bind ("C-z" . undo))
@@ -103,6 +104,51 @@
 
   ;; Enable partial completion for file path expansion (find-file).
   (setq completion-category-overrides '((file (styles partial-completion)))))
+
+(use-package org
+  :init
+  (setq org-agenda-files '("~/org"))
+
+  (setq org-capture-templates
+        '(
+          ("j" "Work Log Entry"
+           entry (file+datetree "~/org/work-log.org")
+           "* %?"
+           :emptylines 0)))
+
+  :bind (
+         ;; Global bindings for org functions.
+         ("C-c a" . org-agenda)
+         ("C-c c" . org-capture)
+         ("C-c l" . org-store-link)
+
+         ;; Local bindings for header navigation.
+         :map org-mode-map
+         ("C-f" . org-previous-visible-heading)
+         ("C-b" . org-next-visible-heading)
+         ("C-p" . org-backward-heading-same-level)
+         ("C-n" . org-forward-heading-same-level))
+
+  :config
+
+  ;; Record timestamp when a task is complete.
+  (setq org-log-done 'time)
+
+  ;; Hide emphasis markers, such as on bold and italic.
+  (setq org-hide-emphasis-markers t)
+
+  ;; Disable automatic right-alignment of tags.
+  (setq org-auto-align-tags nil)
+
+  ;; Prevent and show unintentional invisible edits.
+  (setq org-fold-catch-invisible-edits 'show-and-error))
+
+(use-package org-indent
+  :hook (org-mode))
+
+(use-package org-modern
+  :hook (org-mode)
+  :config (setq org-modern-star 'replace))
 
 (use-package sgml-mode
   :defer t
