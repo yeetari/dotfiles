@@ -141,7 +141,10 @@
   (setq org-auto-align-tags nil)
 
   ;; Prevent and show unintentional invisible edits.
-  (setq org-fold-catch-invisible-edits 'show-and-error))
+  (setq org-fold-catch-invisible-edits 'show-and-error)
+
+  ;; Fontify superscripts, subscripts and various symbols.
+  (setq org-pretty-entities t))
 
 (use-package org-indent
   :hook (org-mode))
