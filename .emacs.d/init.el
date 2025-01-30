@@ -116,6 +116,16 @@
            "* %?"
            :emptylines 0)))
 
+  ;; Set TODO keywords, vertical pipe separates in-progress and done states.
+  (setq org-todo-keywords
+        '((sequence
+           "TODO(t)"
+           "BLOCKED(b)"
+           "IN-PROGRESS(i)"
+           "|"
+           "DONE(d)"
+           "OBE(o@)")))
+
   :bind (
          ;; Global bindings for org functions.
          ("C-c a" . org-agenda)
