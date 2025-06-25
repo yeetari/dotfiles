@@ -1,6 +1,9 @@
 (use-package company
   :hook (cmake-mode eglot-managed-mode))
 
+(use-package company-quickhelp
+  :hook (company-mode))
+
 (use-package compile
   :defer t
   :config
