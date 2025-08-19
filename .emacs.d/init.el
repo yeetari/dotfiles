@@ -28,7 +28,7 @@
          ([remap goto-line] . consult-goto-line)
          ([remap imenu] . consult-imenu)
          ([remap bookmark-jump] . consult-bookmark)
-         ("M-s d" . consult-find)
+         ("M-s f" . consult-find)
          ("M-s g" . consult-grep)))
 
 (use-package doc-view
